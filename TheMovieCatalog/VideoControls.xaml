@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="TheMovieCatalog.VideoControls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TheMovieCatalog"
+             mc:Ignorable="d"
+             d:Width="800"
+             DataContext="{Binding}">
+    <Grid x:Name="_rootGrid" Style="{StaticResource GridStyleKey}" Opacity="{Binding MaxOpacity}" Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="_mediaCurrentTimeTextBox" Grid.Column="0" Margin="5" FontSize="18" HorizontalAlignment="Left" VerticalAlignment="Center" Text="{Binding MediaCurrentTime, Converter={StaticResource TimeSpanToTrimmedStringConverterKey}}" d:Text="00:00:00"/>
+            <local:CustomSlider x:Name="_playbackSlider" Grid.Column="1" Margin="5" AutoToolTipPlacement="None" FontSize="18" ToolTipOffset="0,0" ToolTipContent="{Binding MediaCurrentTime, Converter={StaticResource TimeSpanToTrimmedStringConverterKey}}" Value="{Binding Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Minimum="0" Maximum="1">
+
+            </local:CustomSlider>
+            <TextBlock x:Name="_mediaLengthTextBox" Grid.Column="2" Margin="5" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Center" Text="{Binding MediaLength,Converter={StaticResource TimeSpanToTrimmedStringConverterKey}}" d:Text="02:32:10"/>
+        </Grid>
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+            <Button Content="Prev" VerticalAlignment="Center" FontSize="24" Visibility="{Binding ChapterCount, Converter={StaticResource ChapterCountToVisibilityConverterKey}}" Margin="5" Click="PreviousChapterButton_Clicked"/>
+            <Button x:Name="_playPauseButton" Content="{Binding PlayPauseString}" d:Content="Play" VerticalAlignment="Center" FontSize="24" Margin="5" Click="PlayPauseButton_Clicked"/>
+            <Button Content="Next" VerticalAlignment="Center" FontSize="24" Visibility="{Binding ChapterCount, Converter={StaticResource ChapterCountToVisibilityConverterKey}}" Margin="5" Click="NextChapterButton_Clicked"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Fullscreen" VerticalAlignment="Center" FontSize="24" Margin="5" Click="FullScreenButton_Clicked"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="1" Visibility="Collapsed" Orientation="Horizontal" HorizontalAlignment="Left" MouseEnter="StackPanel_MouseEnter" MouseLeave="StackPanel_MouseLeave">
+            <Button Content="Volume" VerticalAlignment="Center" FontSize="24" Margin="5" MouseEnter="VolumeButton_MouseEnter" MouseLeave="VolumeButton_MouseLeave"/>
+            <Slider x:Name="_volumeSlider" MouseEnter="VolumeSlider_MouseEnter" MouseLeave="VolumeSlider_MouseLeave" Visibility="{Binding IsVolumeHovered, Converter={StaticResource BoolToVisibilityConverterKey}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Minimum="0.0" Maximum="100.0" Width="100" Value="{Binding VolumeLevel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Interval="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
