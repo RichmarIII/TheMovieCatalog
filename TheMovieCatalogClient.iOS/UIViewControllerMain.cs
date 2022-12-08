@@ -1,26 +1,18 @@
-﻿using CoreFoundation;
+﻿using System.Linq;
 using Foundation;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http;
 using TheMovieCatalog.Shared;
-using TheMovieCatalog.WebAPI.DataModels;
 using UIKit;
-using Xamarin.Essentials;
 
 namespace TheMovieCatalogClient.iOS
 {
     [Register("UIViewControllerMain")]
     public class UIViewControllerMain : UIViewController
     {
-        LibVLCSharp.Platforms.iOS.VideoView _videoView;
-        LibVLCSharp.Shared.LibVLC _libVLC;
-        LibVLCSharp.Shared.MediaPlayer _mediaPlayer;
+        private LibVLCSharp.Platforms.iOS.VideoView _videoView;
+        private LibVLCSharp.Shared.LibVLC _libVLC;
+        private LibVLCSharp.Shared.MediaPlayer _mediaPlayer;
 
-        async public override void ViewDidLoad()
+        public override async void ViewDidLoad()
         {
             base.ViewDidLoad();
 

@@ -87,7 +87,6 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="LibVLCSharp">
@@ -105,7 +104,7 @@
     <PackageReference Include="VideoLAN.LibVLC.iOS">
       <Version>3.3.17</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.3" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -154,6 +153,6 @@
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  <Import Project="..\..\..\..\..\..\Dev\Repositories\HawkEyeGames\TheMovieCatalog\TheMovieCatalog.Shared\TheMovieCatalog.Shared.projitems" Label="Shared" />
+  <Import Project="..\TheMovieCatalog.Shared\TheMovieCatalog.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

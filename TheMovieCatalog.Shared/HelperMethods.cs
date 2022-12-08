@@ -1,11 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using TheMovieCatalog.WebAPI.DataModels;
 
 namespace TheMovieCatalog.Shared
@@ -41,7 +39,7 @@ namespace TheMovieCatalog.Shared
             try
             {
                 HttpClient httpClient = new();
-                using (var netStream = await httpClient.GetStreamAsync(String.Format(@"{0}/api/Images/Poster/{1}", GetMediaServerURL(), movie.ID.ToString())))
+                using (var netStream = await httpClient.GetStreamAsync(new Uri(String.Format(@"{0}/api/Images/Poster/{1}", GetMediaServerURL(), movie.ID.ToString()))))
                 {
                     using Stream stream = new MemoryStream();
                     await netStream.CopyToAsync(stream);
@@ -59,7 +57,7 @@ namespace TheMovieCatalog.Shared
             try
             {
                 HttpClient httpClient = new();
-                using (var netStream = await httpClient.GetStreamAsync(String.Format(@"{0}/api/Images/Backdrop/{1}", GetMediaServerURL(), movie.ID.ToString())))
+                using (var netStream = await httpClient.GetStreamAsync(new Uri(String.Format(@"{0}/api/Images/Backdrop/{1}", GetMediaServerURL(), movie.ID.ToString()))))
                 {
                     using Stream stream = new MemoryStream();
                     await netStream.CopyToAsync(stream);
@@ -76,12 +74,12 @@ namespace TheMovieCatalog.Shared
         {
             try
             {
-                HttpClient httpClient = new HttpClient();
-                var jsonLibraries = await httpClient.GetStringAsync(String.Format("{0}/api/libraries/movies", GetMediaServerURL()));
+                HttpClient httpClient = new();
+                var jsonLibraries = await httpClient.GetStringAsync(new Uri(String.Format("{0}/api/Libraries/Movies", GetMediaServerURL())));
                 var Libraries = JsonConvert.DeserializeObject<List<MoviesLibraryDataWebAPI>>(jsonLibraries);
                 return Libraries;
             }
-            catch (Exception)
+            catch
             {
 
                 throw;
@@ -92,10 +90,10 @@ namespace TheMovieCatalog.Shared
         {
             try
             {
-                HttpClient httpClient = new HttpClient();
-                return await httpClient.GetStreamAsync(String.Format("{0}/api/movies/play/{1}", GetMediaServerURL(), movie.ID.ToString()));
+                HttpClient httpClient = new();
+                return await httpClient.GetStreamAsync(new Uri(String.Format("{0}/api/Movies/Play/{1}", GetMediaServerURL(), movie.ID.ToString())));
             }
-            catch (Exception)
+            catch
             {
                 throw;
             }
