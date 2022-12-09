@@ -168,20 +168,20 @@ namespace TheMovieCatalog.WebAPI.Controllers
         }
     }
 
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]/[action]")] 
     public class LibrariesController : Controller
     {
         [HttpGet]
-        async public Task<List<MoviesLibraryDataWebAPI>?> Movies()
+        public async Task<List<MoviesLibraryDataWebAPI>?> Movies()
         {
             return await App.Current.Dispatcher.InvokeAsync(() =>
             {
-                if (MainWindow.Instance.Libraries.IsNullOrEmpty())
+                if (MainWindow.Instance?.Libraries.IsNullOrEmpty() == true)
                     return null;
                 else
                 {
-                    var Libraries = MainWindow.Instance.Libraries.Where((l) => l.MediaLibraryType == MediaLibraryType.Movies).Select((l) => WebAPIDataFactory.CreateMoviesLibraryDataWebAPI(l)).ToList();
-                    if (Libraries.IsNullOrEmpty())
+                    var Libraries = MainWindow.Instance?.Libraries.Where((l) => l.MediaLibraryType == MediaLibraryType.Movies).Select((l) => WebAPIDataFactory.CreateMoviesLibraryDataWebAPI(l)).ToList();
+                    if (Libraries?.IsNullOrEmpty() == true)
                         return null;
                     else
                         return Libraries;

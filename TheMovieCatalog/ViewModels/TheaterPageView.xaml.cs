@@ -40,7 +40,6 @@ namespace TheMovieCatalog.ViewModels
             InitializeComponent();
 
             Core.Initialize();
-
             _libVLC = new LibVLC();
             _libVLC.Log += LibVLC_Log;
             _mediaPlayer = new LibVLCSharp.Shared.MediaPlayer(_libVLC);
@@ -62,14 +61,14 @@ namespace TheMovieCatalog.ViewModels
         public void PlayMedia(MediaData? media)
         {
             MainWindow.Instance.Frame.Navigate(this);
-            
+
             if (_mediaPlayer != null && _libVLC != null && media != null)
             {
                 _media = media;
                 _mediaPlayer.SetMarqueeString(VideoMarqueeOption.Text, media.Title);
                 _mediaPlayer.SetMarqueeInt(VideoMarqueeOption.Timeout, 5000);
                 _mediaPlayer.SetMarqueeInt(VideoMarqueeOption.Enable, 1);
-                
+
 
                 Task.Run(() =>
                 {
