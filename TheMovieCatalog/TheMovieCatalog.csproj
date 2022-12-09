@@ -7,6 +7,7 @@
     <UseWPF>true</UseWPF>
     <UseWindowsForms>true</UseWindowsForms>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Configurations>Release;Debug</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
@@ -67,6 +68,6 @@
     </Compile>
   </ItemGroup>
 
-  <Import Project="..\..\..\..\..\..\Dev\Repositories\HawkEyeGames\TheMovieCatalog\TheMovieCatalog.Shared\TheMovieCatalog.Shared.projitems" Label="Shared" />
+  <Import Project="..\TheMovieCatalog.Shared\TheMovieCatalog.Shared.projitems" Label="Shared" />
 
 </Project>

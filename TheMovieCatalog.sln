@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheMovieCatalog", "TheMovieCatalog\TheMovieCatalog.csproj", "{37C9DFCF-8FDA-4566-8942-77FCC3F60783}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheMovieCatalog", "TheMovieCatalog\TheMovieCatalog.csproj", "{90608347-67BE-4E52-B680-21F5FD7A9EFD}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "TheMovieCatalog.Shared", "TheMovieCatalog.Shared\TheMovieCatalog.Shared.shproj", "{765D1527-5736-4089-9CD8-905BFDE3A4D6}"
 EndProject
@@ -21,20 +21,18 @@ Global
 		Release|iPhoneSimulator = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{37C9DFCF-8FDA-4566-8942-77FCC3F60783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{37C9DFCF-8FDA-4566-8942-77FCC3F60783}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{37C9DFCF-8FDA-4566-8942-77FCC3F60783}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{37C9DFCF-8FDA-4566-8942-77FCC3F60783}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{37C9DFCF-8FDA-4566-8942-77FCC3F60783}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{37C9DFCF-8FDA-4566-8942-77FCC3F60783}.Release|Any CPU.Build.0 = Release|Any CPU
-		{37C9DFCF-8FDA-4566-8942-77FCC3F60783}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{37C9DFCF-8FDA-4566-8942-77FCC3F60783}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{765D1527-5736-4089-9CD8-905BFDE3A4D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{765D1527-5736-4089-9CD8-905BFDE3A4D6}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{765D1527-5736-4089-9CD8-905BFDE3A4D6}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{765D1527-5736-4089-9CD8-905BFDE3A4D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{765D1527-5736-4089-9CD8-905BFDE3A4D6}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{765D1527-5736-4089-9CD8-905BFDE3A4D6}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Release|iPhone.Build.0 = Release|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{90608347-67BE-4E52-B680-21F5FD7A9EFD}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{21F74FB8-7ABA-48E8-B967-0507879DCF9D}.Debug|Any CPU.ActiveCfg = Debug|iPhoneSimulator
 		{21F74FB8-7ABA-48E8-B967-0507879DCF9D}.Debug|Any CPU.Build.0 = Debug|iPhoneSimulator
 		{21F74FB8-7ABA-48E8-B967-0507879DCF9D}.Debug|iPhone.ActiveCfg = Debug|iPhone
@@ -64,12 +62,12 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {021E0EAD-4C2B-4EFA-A2A4-6A70E12A6B95}
+		SolutionGuid = {3B96E688-9F9C-4654-8A64-9E2D412164DC}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		TheMovieCatalog.Shared\TheMovieCatalog.Shared.projitems*{21f74fb8-7aba-48e8-b967-0507879dcf9d}*SharedItemsImports = 4
-		TheMovieCatalog.Shared\TheMovieCatalog.Shared.projitems*{37c9dfcf-8fda-4566-8942-77fcc3f60783}*SharedItemsImports = 5
 		TheMovieCatalog.Shared\TheMovieCatalog.Shared.projitems*{765d1527-5736-4089-9cd8-905bfde3a4d6}*SharedItemsImports = 13
+		TheMovieCatalog.Shared\TheMovieCatalog.Shared.projitems*{90608347-67be-4e52-b680-21f5fd7a9efd}*SharedItemsImports = 5
 		TheMovieCatalog.Shared\TheMovieCatalog.Shared.projitems*{b1ac2496-ffeb-4e92-bd34-2c6e61c233fd}*SharedItemsImports = 4
 	EndGlobalSection
 EndGlobal
