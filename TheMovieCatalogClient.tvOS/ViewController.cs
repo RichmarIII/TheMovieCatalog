@@ -1,9 +1,6 @@
-﻿using AVFoundation;
-using LibVLCSharp.Shared;
-using MediaManager;
-using MediaManager.Platforms.Ios.Video;
+﻿using MediaManager.Platforms.Ios.Video;
 using System;
-using System.Drawing.Imaging;
+using System.Diagnostics;
 using System.Linq;
 using TheMovieCatalog.Shared;
 using UIKit;
@@ -12,23 +9,39 @@ namespace TheMovieCatalogClient.tvOS
 {
     public partial class ViewController : UIViewController
     {
+        private VideoView? videoView;
+        private LibVLCSharp.Shared.MediaPlayer? mediaPlayer;
+        private LibVLCSharp.Shared.LibVLC? libVLC;
+        private LibVLCSharp.Shared.Media? media;
+
         public ViewController(IntPtr handle) : base(handle)
         {
-            CrossMediaManager.Current.MediaPlayer.AutoAttachVideoView = false;
-            var playerView = new VideoView();
-            View.AddSubview(playerView);
-            CrossMediaManager.Current.MediaPlayer.VideoView = playerView;
         }
 
+        public override async void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+
+            libVLC = new LibVLCSharp.Shared.LibVLC(enableDebugLogs: true);
+            libVLC.Log += LibVLC_Log;
+            
+            mediaPlayer = new LibVLCSharp.Shared.MediaPlayer(libVLC);
+            media = new LibVLCSharp.Shared.Media(libVLC, new LibVLCSharp.Shared.StreamMediaInput(await HelperMethods.GetMovieStreamAsync((await HelperMethods.GetMovieLibrariesAsync()).First().MovieMetaDatas.First())));
+            mediaPlayer.Media = media;
+            videoView = new VideoView();
+            View.AddSubview(videoView);
+            videoView.Frame = View.Bounds;
+            mediaPlayer.Play();
+        }
+
+        private void LibVLC_Log(object sender, LibVLCSharp.Shared.LogEventArgs e)
+        {
+            Debug.WriteLine(e.Message);
+        }
 
         public override async void ViewDidLoad()
         {
-            //AVAudioSession.SharedInstance().SetCategory(AVAudioSessionCategory.Playback);
             base.ViewDidLoad();
-
-            var movieLibraries = await HelperMethods.GetMovieLibrariesAsync();
-            var movieStream = await HelperMethods.GetMovieStreamAsync(movieLibraries.First().MovieMetaDatas.First());
-            await CrossMediaManager.Current.Play("https://www.appsloveworld.com/wp-content/uploads/2018/10/Sample-Videos-Mp425.mp4");
         }
 
         public override void ViewWillDisappear(bool animated)

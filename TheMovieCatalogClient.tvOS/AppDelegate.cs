@@ -22,6 +22,7 @@ namespace TheMovieCatalogClient.tvOS
             // Override point for customization after application launch.
             // If not required for your application you can safely delete this method
             CrossMediaManager.Current.Init();
+            LibVLCSharp.Shared.Core.Initialize();
             return true;
         }
 

@@ -65,8 +65,8 @@ namespace TheMovieCatalog.WebAPI.Controllers
 
             Process? process = null;
 
-            //ProcessStartInfo SI = new ProcessStartInfo("ffmpeg", String.Format("-y -re -ss 01:32:00 -i \"{0}\" -movflags +faststart -crf 27 -tune zerolatency -bufsize 4M -maxrate 4M -c:v libx264 -c:a aac -f mpegts -", movie.LocalFilePath));
-            ProcessStartInfo SI = new ProcessStartInfo("ffmpeg", String.Format("-y -re -ss 01:32:00 -i \"{0}\" -f nut -", movie.LocalFilePath));
+            ProcessStartInfo SI = new ProcessStartInfo("ffmpeg", String.Format("-y -re -ss 01:32:00 -i \"{0}\" -movflags +faststart -crf 27 -tune zerolatency -bufsize 4M -maxrate 4M -c:v libx264 -c:a aac -f mpegts -", movie.LocalFilePath));
+            //ProcessStartInfo SI = new ProcessStartInfo("ffmpeg", String.Format("-y -re -ss 01:32:00 -i \"{0}\" -f hls -", movie.LocalFilePath));
             SI.RedirectStandardOutput = true;
             SI.UseShellExecute = false;
             SI.CreateNoWindow = false;
